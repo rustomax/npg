@@ -1,8 +1,8 @@
 # npg
-Password generation utility in Nim
+Password generation utility in Nim, based on [passgen library](https://github.com/rustomax/nim-passgen)
 
 ## Installation
-```
+```sh
 nimble install npg
 ```
 
@@ -26,7 +26,7 @@ Character sets (default = include all):
 Example  : npg
            generate 1 password, 16 characters-long,
            using all character sets (lower and uppercase letters,
-           digits and special characters
+           digits and special characters)
 
 Example  : npg -L=20 -N=10 -lud
            generate 10 passwords, 20 characters-long,

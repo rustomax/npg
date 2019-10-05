@@ -1,10 +1,7 @@
-## Password generation utility in Nim
-## Based on [passgen library]()
-## Installation instructions:
-##
-## ```sh
-## nimble install npg
-## ```
+# Password generation utility in Nim
+# Based on `passgen` library (https://github.com/rustomax/nim-passgen)
+# Installation instructions:
+# `nimble install npg`
 
 import strutils, parseopt
 import passgen
@@ -35,7 +32,7 @@ proc printHelp() =
     echo "Example  : npg"
     echo "           generate 1 password, 16 characters-long,"
     echo "           using all character sets (lower and uppercase letters,"
-    echo "           digits and special characters"
+    echo "           digits and special characters)"
     echo ""
     echo "Example  : npg -L=20 -N=10 -lud"
     echo "           generate 10 passwords, 20 characters-long,"
