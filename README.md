@@ -32,7 +32,7 @@ Example  : npg -L=20 -N=10 -lud
            generate 10 passwords, 20 characters-long,
            using alpha-numerical characters only (no special characters)
 
-Example  : npg -N=5 -L=4 -d
+Example  : npg -N=10 -L=4 -d
            generate 10 4-digit numerical PINs
 
 ```
