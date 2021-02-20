@@ -1,5 +1,5 @@
 # npg
-Password generation utility in Nim, based on [passgen library](https://github.com/rustomax/nim-passgen)
+Cross-platform password generation utility in Nim, based on [passgen library](https://github.com/rustomax/nim-passgen)
 
 ## Installation
 ```sh
@@ -15,7 +15,8 @@ Usage: npg [options]
 
 Password options:
   -N=<x> : generate <x> passwords (default = 1)
-  -L=<y> : generate <y> character-long passwords, (default = 16)
+  -L=<y> : generate <y> character-long passwords
+           (default password length = 16, min = 4, max = 1024)
 
 Character sets (default = include all):
   -l     : include lower case letters
@@ -32,7 +33,6 @@ Example  : npg -L=20 -N=10 -lud
            generate 10 passwords, 20 characters-long,
            using alpha-numerical characters only (no special characters)
 
-Example  : npg -N=10 -L=4 -d
+Example  : npg -N=5 -L=4 -d
            generate 10 4-digit numerical PINs
-
 ```
