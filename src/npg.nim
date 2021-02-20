@@ -6,7 +6,12 @@
 import strutils, parseopt
 import passgen
 
-const softwareVersion = "0.1.0"
+const
+    softwareVersion = "0.2.0"
+    minPassLen = 4
+    maxPassLen = 1024
+    defaultPassLen = 16
+    defaultPassNum = 1
 
 proc printSoftwareVersion() =
     echo "npg - Nim random password generator"
@@ -21,7 +26,8 @@ proc printHelp() =
     echo ""
     echo "Password options:"
     echo "  -N=<x> : generate <x> passwords (default = 1)"
-    echo "  -L=<y> : generate <y> character-long passwords, (default = 16)"
+    echo "  -L=<y> : generate <y> character-long passwords"
+    echo "           (default password length = 16, min = 4, max = 1024)"
     echo ""
     echo "Character sets (default = include all):"
     echo "  -l     : include lower case letters"
@@ -45,8 +51,8 @@ proc main() =
     # Parse CLI arguments
     var p = initOptParser()
     var flags: set[CFlag] = {}
-    var passLen = 16
-    var passNum = 1
+    var passLen = defaultPassLen
+    var passNum = defaultPassNum
 
     while true:
         p.next()
@@ -60,7 +66,7 @@ proc main() =
                     raise(newException(ArgumentException, "invalid value " & p.key & ": " & p.val))
             of "L":
                 passLen = parseInt(p.val)
-                if passLen < 1:
+                if passLen < minPassLen or passLen > maxPassLen:
                     raise(newException(ArgumentException, "invalid value " & p.key & ": " & p.val))
             of "l":
                 flags = flags + {fLower}
